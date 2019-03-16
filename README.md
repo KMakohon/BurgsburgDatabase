@@ -12,15 +12,15 @@ Celem projektu jest pomoc w organizacji i kontroli liczby mieszkańców średnio
 
 Oznaczenia: **Klucz podstawowy**, _Klucz obcy_
 
-1. Persons: (**Id**, Name, Surname, _Houses.Id_ , _Profesion.Name_ , Height, Weight, Date_of_birth, Date_of_death,
+1. Persons: (**Id**, Name, Surname, _Houses.Id_ , _Profession.Name_ , Height, Weight, Date_of_birth, Date_of_death,
     Money, Value)
 2. Names: (**Name**, Gender)
 3. Houses: (**Id**, District, Capacity, Type)
 4. Items: (**Name**, Value, Description)
-5. Owners: (**_Items.Name_** , _Persons.Id_ )
+5. Owners: (**_Items.Name_** , **_Persons.Id_** )
 6. Transaction: (**_Customer.Id_** , **_Provider.Id_** , Amount)
-7. Proffesions: (**Name**, Salary)
-8. Production: (**_Proffesions.Name_** , **_Items.Name_** )
+7. Professions: (**Name**, Salary)
+8. Production: (**_Professions.Name_** , **_Items.Name_** )
 
 ## 3 Opis funkcjonalności
 
