@@ -10,17 +10,17 @@ Celem projektu jest pomoc w organizacji i kontroli liczby mieszkańców średnio
 
 ## 2 Model relacyjny (RM)
 
-Oznaczenia: Klucz podstawowy, _Klucz obcy_
+Oznaczenia: **Klucz podstawowy**, _Klucz obcy_
 
-1. Persons: (Id, Name, Surname, _Houses.Id_ , _Profesion.Name_ , Height, Weight, Date_of_birth, Date_of_death,
+1. Persons: (**Id**, Name, Surname, _Houses.Id_ , _Profesion.Name_ , Height, Weight, Date_of_birth, Date_of_death,
     Money, Value)
-2. Names: (Name, Gender)
-3. Houses: (Id, District, Capacity, Type)
-4. Items:(Name, Value, Description)
+2. Names: (**Name**, Gender)
+3. Houses: (**Id**, District, Capacity, Type)
+4. Items: (**Name**, Value, Description)
 5. Owners: ( _Items.Name_ , _Persons.Id_ )
-6. Transaction: ( _Customer.Id_ , _Provider.Id_ , Amount)
-7. Proffesions: (Name, Salary)
-8. Production: ( _Proffesions.Name_ , _Items.Name_ )
+6. Transaction: ( **_Customer.Id_** , **_Provider.Id_** , Amount)
+7. Proffesions: (**Name**, Salary)
+8. Production: ( **_Proffesions.Name_** , **_Items.Name_** )
 
 ## 3 Opis funkcjonalności
 
@@ -32,9 +32,9 @@ Oznaczenia: Klucz podstawowy, _Klucz obcy_
 - Wypłacanie żołdu osobom pracującym w konkretnych profesjach.
 - Pobieranie podatków od obywateli.
 - Wygnanie obywatela.
-- Obsługa więzienia (wtrącanie, zwalnianie z więzienia)
-- Obsługa koszar (pobór wojskowy, zwolnienie ze służby)
-- Obsługa cmentarza
+- Obsługa więzienia. (Wtrącanie, zwalnianie z więzienia.)
+- Obsługa koszar. (Pobór wojskowy, zwolnienie ze służby.)
+- Obsługa cmentarza.
 
 ## 4 Logika Bazy
 
@@ -51,8 +51,8 @@ Oznaczenia: Klucz podstawowy, _Klucz obcy_
     wykonywać usług.
 - Od osób w więzieniu i martwych nie są pobierane podatki.
 - Domy przydzielane są obywatelom przez radę miasta.
-- Istnieją domy różnych typów. Niektóre z nich są dostęne tylko dla osób o okrelonej majętności.
-- Cmentarz i Więzienie to domy mogą więc ulec przepełnieniu.
+- Istnieją domy różnych typów. Niektóre z nich są dostęne tylko dla osób o określonej majętności.
+- Cmentarz i Więzienie to domy, mogą więc ulec przepełnieniu.
 - W wypadku przepełnienia Cmentarza z bazy usuwana jest osoba o najdawniejszej dacie śmierci.
 - W przypadku przepełnienia Więzienia osoba, która ma zostać skazana zostaje wydalona z miasta.
 - Most nie może ulec przepełnieniu.
