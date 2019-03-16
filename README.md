@@ -6,10 +6,7 @@
 
 ## 1 Cel
 
-Celem projektu jest pomoc w organizacji i kontroli liczby mieszkańców średniowiecznego quasi-niemieckiego
-Burgsburgu. Możliwe będzie ustalenie profesji, majątku i miejsca zamieszkania każdego z obywateli
-oraz sprawdzenie historii jego transakcji. Baza pozwoli na sprawniejsze pobieranie podatków i wyszu-
-kiwanie określonych osób.
+Celem projektu jest pomoc w organizacji i kontroli liczby mieszkańców średniowiecznego quasi-niemieckiego Burgsburgu. Możliwe będzie ustalenie profesji, majątku i miejsca zamieszkania każdego z obywateli oraz sprawdzenie historii jego transakcji. Baza pozwoli na sprawniejsze pobieranie podatków i wyszukiwanie określonych osób.
 
 ## 2 Model relacyjny (RM)
 
