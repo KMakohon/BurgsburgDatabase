@@ -15,15 +15,15 @@ kiwanie określonych osób.
 
 Oznaczenia: Klucz podstawowy, _Klucz obcy_
 
-1. Osoby: (id, Imię, Nazwisko, _Domy.id_ , _profesja.nazwa_ , wzrost, waga, data urodzenia, data śmierci,
-    pieniądze, wartość przedmiotów)
-2. imiona: (Imię, płeć)
-3. Domy: (ID, dzielnica, maksymalna liczba miejsc, typ)
-4. Przedmioty:(Nazwa, wartość, opis)
-5. Własnosć: ( _Przedmioty.nazwa_ , _Osoby.id_ )
-6. Transakcje: ( _Biorca.id_ , _Dawca.id_ , suma)
-7. Profesje: (Nazwa, pensja)
-8. Wytwórstwo: ( _profesja.nazwa_ , _przedmiot.nazwa_ )
+1. Persons: (Id, Name, Surname, _Houses.Id_ , _Profesion.Name_ , Height, Weight, Date_of_birth, Date_of_death,
+    Money, Value)
+2. Names: (Name, Gender)
+3. Houses: (Id, District, Capacity, Type)
+4. Items:(Name, Value, Description)
+5. Owners: ( _Items.Name_ , _Persons.Id_ )
+6. Transaction: ( _Customer.Id_ , _Provider.Id_ , Amount)
+7. Proffesions: (Name, Salary)
+8. Production: ( _Proffesions.Name_ , _Items.Name_ )
 
 ## 3 Opis funkcjonalności
 
