@@ -24,8 +24,8 @@ IF OBJECT_ID('Items', 'U') IS NOT NULL
 IF OBJECT_ID('Persons', 'U') IS NOT NULL 
 	DROP TABLE Persons;
 
-IF OBJECT_ID('Proffesions', 'U') IS NOT NULL 
-	DROP TABLE Proffesions;
+IF OBJECT_ID('Professions', 'U') IS NOT NULL 
+	DROP TABLE Professions;
 
 IF OBJECT_ID('Names', 'U') IS NOT NULL 
 	DROP TABLE Names;
@@ -63,7 +63,7 @@ CREATE TABLE Houses
 );
 
 
-CREATE TABLE Proffesions
+CREATE TABLE Professions
 (
 	Name VARCHAR(30) PRIMARY KEY,
 	Salary SMALLINT NOT NULL DEFAULT 0
@@ -77,7 +77,7 @@ CREATE TABLE Persons
    Name VARCHAR(25) FOREIGN KEY REFERENCES Names(Name) NOT NULL,
    Surname VARCHAR(50) NOT NULL,
    House INT FOREIGN KEY REFERENCES Houses(Id) NOT NULL,
-   Proffesion VARCHAR(30) FOREIGN KEY REFERENCES Proffesions(Name) NOT NULL,
+   Profession VARCHAR(30) FOREIGN KEY REFERENCES Professions(Name) NOT NULL,
    Height TINYINT NOT NULL,
    Weight TINYINT NOT NULL,
    Date_of_birth DATE NOT NULL,
@@ -121,14 +121,14 @@ CREATE TABLE Transactions
 CREATE TABLE Production
 (
 	Id	BIGINT	 PRIMARY KEY IDENTITY(1,1),
-	Proffesion VARCHAR(30) FOREIGN KEY REFERENCES Proffesions(Name),
+	Profession VARCHAR(30) FOREIGN KEY REFERENCES Professions(Name),
 	Item VARCHAR(30) FOREIGN KEY REFERENCES Items(Name),
 
 );
 
 ---- Set example values ----
 
-INSERT INTO Proffesions VALUES
+INSERT INTO Professions VALUES
 ('Agitator', 20),
 ('Bailiff', 60),
 ('Barber-Surgeon', 0),
@@ -770,14 +770,14 @@ INSERT INTO Owners VALUES
 
 
 
----- WYÅšWIETLANIE TABELI ----
+---- WYŒWIETLANIE TABELI ----
 
 SELECT * FROM Names
 SELECT * FROM Houses
 SELECT * FROM Items
 SELECT * FROM Production
 SELECT * FROM Transactions
-SELECT * FROM Proffesions
+SELECT * FROM Professions
 SELECT * FROM Owners
 SELECT * FROM Persons
 GO
@@ -787,5 +787,6 @@ SELECT * FROM Barrack
 SELECT * FROM Graveyard
 SELECT * FROM Free_People
 SELECT * FROM Occupation_of_houses
+
 
 

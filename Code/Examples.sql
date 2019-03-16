@@ -46,7 +46,7 @@ exec ModifySurname 12, 'Kircher'
 SELECT * FROM Persons
 
 SELECT * FROM Persons
-exec ModifyProffesion 12,'Soldier'
+exec ModifyProfession 12,'Soldier'
 SELECT * FROM Persons
 
 SELECT * FROM Persons
@@ -77,13 +77,13 @@ SELECT * FROM Items
 exec DeleteItem 'Axe'
 SELECT * FROM Items
 
-SELECT * FROM Proffesions
-exec AddProffesion 'Cultist', 0
-SELECT * FROM Proffesions
+SELECT * FROM Professions
+exec AddProfession 'Cultist', 0
+SELECT * FROM Professions
 
-SELECT * FROM Proffesions
+SELECT * FROM Professions
 exec ModifySalary 'Cultist', 20
-SELECT * FROM Proffesions
+SELECT * FROM Professions
 
 SELECT * FROM Production
 exec AddItem 'Axe', 300, 'Standard axe.'
@@ -176,3 +176,4 @@ Zwraca obecn¹ datê
 
 
 */
+
