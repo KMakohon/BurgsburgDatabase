@@ -96,13 +96,13 @@ AS
 
 	IF (SELECT Capacity FROM Houses WHERE Type='Jail') <= (SELECT COUNT(*) FROM Jail )
 		BEGIN
-			RAISERROR('Dla tej kanalii nie ma ju¿ miejsca w wiêzieniu. Wygnaj go!', 16, 1)
+			RAISERROR('For this knave there is already no place in jail. Banish him! ', 16, 1)
 			RETURN
 		END
 
 	IF  (SELECT Date_of_death FROM Persons WHERE Id=@Id_person) IS NOT NULL
 		BEGIN
-			RAISERROR('On ju¿ nie ¿yje. Na niego nie ma paragrafu :(',16,1)
+			RAISERROR('He is already dead. There is no paragraph for him.',16,1)
 			RETURN;
 		END
 	UPDATE Persons
@@ -119,7 +119,7 @@ AS
 			RETURN
 		END
 	DECLARE @Salary INT
-	SET @Salary = (SELECT Salary FROM Proffesions WHERE Proffesions.Name = (SELECT Proffesion FROM Persons WHERE Id = @Id_person))
+	SET @Salary = (SELECT Salary FROM Professions WHERE Professions.Name = (SELECT Profession FROM Persons WHERE Id = @Id_person))
 	IF (@Salary = 0)
 		BEGIN
 			PRINT('City have not pay that person!')
@@ -142,25 +142,24 @@ AS
 		SET Persons.Surname = @Surname WHERE id = @Id_person
 GO
 
-CREATE OR ALTER PROCEDURE ModifyProffesion
+CREATE OR ALTER PROCEDURE ModifyProfession
 	@Id_person BIGINT,
-	@Proffesion VARCHAR(30)
+	@Profession VARCHAR(30)
 AS
 	IF (SELECT Date_of_death FROM Persons WHERE Id = @Id_person) IS NOT NULL
 		BEGIN
 			RAISERROR('He is death!',16,1)
 			RETURN
 		END
-	IF @Proffesion not in (SELECT Name FROM Proffesions)
+	IF @Profession not in (SELECT Name FROM Professions)
 		BEGIN
-			RAISERROR('That proffesion does not exist.', 16,1)
+			RAISERROR('That Profession does not exist.', 16,1)
 			RETURN
 		END
 	UPDATE Persons
-		SET Persons.Proffesion = @Proffesion WHERE Id = @Id_person
+		SET Persons.Profession = @Profession WHERE Id = @Id_person
 GO
 
--- ModyfikujWage - dana Person zmienia wagê
 CREATE OR ALTER PROCEDURE ModifyWeight
 	@Id_person BIGINT,
 	@Weight TINYINT
@@ -174,7 +173,6 @@ AS
 		SET Persons.Weight = @Weight WHERE Id = @Id_person
 GO
 
--- ModyfikujHeight - dana Person zmienia Height
 CREATE OR ALTER PROCEDURE ModifyHeight
 	@Id_person BIGINT,
 	@Height TINYINT
@@ -258,21 +256,21 @@ AS
 GO
 
 
-CREATE OR ALTER PROCEDURE AddProffesion
+CREATE OR ALTER PROCEDURE AddProfession
 	@Name VARCHAR(30),
 	@Salary SMALLINT = 0
 AS
-	INSERT INTO Proffesions VALUES
+	INSERT INTO Professions VALUES
 	(@Name, @Salary)
 GO
 
 
 CREATE OR ALTER PROCEDURE AddProduction
-	@Proffesion VARCHAR(30),
+	@Profession VARCHAR(30),
 	@Item VARCHAR(30)
 AS
 	INSERT INTO Production VALUES
-	(@Proffesion, @Item)
+	(@Profession, @Item)
 GO
 
 
@@ -294,7 +292,7 @@ CREATE OR ALTER PROCEDURE CreatePerson
 	@Name VARCHAR(25),
 	@Surname VARCHAR(50),
 	@house INT,
-	@Proffesion VARCHAR(30),
+	@Profession VARCHAR(30),
 	@Height TINYINT,
 	@Weight TINYINT,
 	@Date_of_birth DATE,
@@ -305,8 +303,8 @@ AS
 			RAISERROR('There is no room in this house for that person.', 16, 1)
 			RETURN
 		END
-	INSERT INTO Persons(Name, Surname, House, Proffesion, Height, Weight, Date_of_birth,Money)
-	VALUES (@Name, @Surname, @house, @Proffesion, @Height, @Weight, @Date_of_birth, @Money)
+	INSERT INTO Persons(Name, Surname, House, Profession, Height, Weight, Date_of_birth,Money)
+	VALUES (@Name, @Surname, @house, @Profession, @Height, @Weight, @Date_of_birth, @Money)
 GO
 
 
@@ -344,7 +342,7 @@ CREATE OR ALTER PROCEDURE ModifySalary
 	@Name VARCHAR(30),
 	@NewSalary SMALLINT
 AS
-	UPDATE Proffesions
+	UPDATE Professions
 		SET Salary = @NewSalary WHERE Name=@Name
 GO
 
@@ -354,7 +352,7 @@ CREATE OR ALTER PROCEDURE CreateThing
 	@Item_Name VARCHAR(30),
 	@Id_person BIGINT
 AS
-	IF ( @Item_Name in (SELECT Item FROM Production WHERE Proffesion = (SELECT Proffesion FROM Persons WHERE Id = @Id_person)) )
+	IF ( @Item_Name in (SELECT Item FROM Production WHERE Profession = (SELECT Profession FROM Persons WHERE Id = @Id_person)) )
 		BEGIN
 			INSERT INTO Owners VALUES
 				(@Item_Name, @Id_person)
@@ -472,6 +470,7 @@ AS
 				SET Provider = NULL WHERE Provider = @Id_person
 			DELETE FROM Persons WHERE Id = @Id_person
 GO
+
 
 
 

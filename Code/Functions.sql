@@ -5,7 +5,7 @@ CREATE OR ALTER FUNCTION BirthYear
 RETURNS TABLE
 AS
 
-	RETURN SELECT Name, Surname, Proffesion, Height, Weight, Date_of_birth, Date_of_death 
+	RETURN SELECT Name, Surname, Profession, Height, Weight, Date_of_birth, Date_of_death 
 	FROM Persons 
 	WHERE YEAR(Date_of_birth) = @Year
 GO
@@ -17,20 +17,20 @@ CREATE OR ALTER FUNCTION DeathYear
 )
 RETURNS TABLE
 AS
-	RETURN SELECT Name, Surname, Proffesion, Height, Weight, Date_of_birth, Date_of_death
+	RETURN SELECT Name, Surname, Profession, Height, Weight, Date_of_birth, Date_of_death
 	FROM Persons
 	WHERE YEAR(Date_of_death) = @Year
 GO
 
 CREATE OR ALTER FUNCTION FindExperts
 (
-	@Proffesion VARCHAR(30)
+	@Profession VARCHAR(30)
 )
 RETURNS TABLE
 AS
 	RETURN SELECT Name, Surname, District, Type, Number
 	FROM Free_People
-	WHERE Proffesion = @Proffesion
+	WHERE Profession = @Profession
 GO
 
 CREATE OR ALTER FUNCTION MediumHeight
@@ -73,9 +73,9 @@ CREATE OR ALTER FUNCTION ufn_getDate()
 RETURNS DATE
 AS
 BEGIN
-	DECLARE @Data DATE
-	SET @Data = DATEFROMPARTS(YEAR(GETDATE())-860, MONTH(GETDATE()), DAY(GETDATE()))
-	RETURN @Data;
+	DECLARE @Date DATE
+	SET @Date = DATEFROMPARTS(YEAR(GETDATE())-860, MONTH(GETDATE()), DAY(GETDATE()))
+	RETURN @Date;
 END
 GO
 
@@ -94,4 +94,5 @@ BEGIN
 	SET @Value = ISNULL((SELECT SUM(Value) FROM Owners JOIN Items ON Owners.Name = Items.Name WHERE Owner = @Person), 0)
 	RETURN @Money+@Value
 END
+
 

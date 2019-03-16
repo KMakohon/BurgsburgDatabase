@@ -31,7 +31,7 @@ AS
 
 			IF (SELECT COUNT(*) FROM Persons INNER JOIN Houses on Persons.House = Houses.id GROUP BY House, Houses.Capacity HAVING COUNT(*) > Houses.Capacity) > 0
 				BEGIN
-					RAISERROR('Coœ posz³o nie tak! Przepe³nienie Houseów!', 16, 1)
+					RAISERROR('Something is no yes (:D). House is overflow.', 16, 1)
 					ROLLBACK;
 				END
 		END
@@ -39,10 +39,11 @@ GO
 
 
 CREATE OR ALTER TRIGGER t_firing
-ON Proffesions
+ON Professions
 INSTEAD OF DELETE
 AS
-	PRINT('You tried to delete proffesion!')
-	PRINT('We should not delete proffesions - we never know if there would be new person with that proffesion. Anyway, we can set salary for this proffesion on 0; it will be costless for city! It is like delete, is not it?')
-	UPDATE Proffesions SET Salary = 0 WHERE Name in (SELECT Name FROM deleted)
+	PRINT('You tried to delete Profession!')
+	PRINT('We should not delete Professions - we never know if there would be new person with that Profession. Anyway, we can set salary for this Profession on 0; it will be costless for city! It is like delete, is not it?')
+	UPDATE Professions SET Salary = 0 WHERE Name in (SELECT Name FROM deleted)
 GO
+
