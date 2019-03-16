@@ -160,7 +160,6 @@ AS
 		SET Persons.Profession = @Profession WHERE Id = @Id_person
 GO
 
--- ModyfikujWage - dana Person zmienia wagê
 CREATE OR ALTER PROCEDURE ModifyWeight
 	@Id_person BIGINT,
 	@Weight TINYINT
@@ -174,7 +173,6 @@ AS
 		SET Persons.Weight = @Weight WHERE Id = @Id_person
 GO
 
--- ModyfikujHeight - dana Person zmienia Height
 CREATE OR ALTER PROCEDURE ModifyHeight
 	@Id_person BIGINT,
 	@Height TINYINT

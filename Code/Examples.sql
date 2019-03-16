@@ -143,7 +143,6 @@ SELECT * FROM Barrack
 SELECT * FROM Barrack
 exec Homecoming 4
 SELECT * FROM Barrack
-Dana osoba (jeœli jest w wojsku) otrzymuje 20000 monet i zmienia dom na posiad³oœæ, w której znajduj¹ siê wolne miejsca. Jeœli taka posiad³oœæ nie istnieje, procedura zwraca b³¹d "zape³nienie domów".
 
 SELECT * FROM Persons
 SELECT * FROM Owners
@@ -168,10 +167,8 @@ SELECT dbo.CapacityOfCity()
 SELECT dbo.HowManyCanBurgsburgEarn()
 
 SELECT dbo.WealthOfPerson(4)
-Zwraca sumê pieniêdzy danego obywatela oraz sumê wartoœci jego przedmiotów (w cenie sprzeda¿y)
 
 SELECT dbo.ufn_PobierzDate()
-Zwraca obecn¹ datê
 
 
 

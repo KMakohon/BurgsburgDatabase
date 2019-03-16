@@ -31,7 +31,7 @@ AS
 
 			IF (SELECT COUNT(*) FROM Persons INNER JOIN Houses on Persons.House = Houses.id GROUP BY House, Houses.Capacity HAVING COUNT(*) > Houses.Capacity) > 0
 				BEGIN
-					RAISERROR('Coœ posz³o nie tak! Przepe³nienie Houseów!', 16, 1)
+					RAISERROR('Something is no yes (:D). House is overflow.', 16, 1)
 					ROLLBACK;
 				END
 		END

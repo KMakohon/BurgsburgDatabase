@@ -85,7 +85,7 @@ CREATE TABLE Persons
    Money INT DEFAULT 0,
 
    CONSTRAINT ck_surname CHECK (surname LIKE '[A-Z]%'),
-   --CONSTRAINT ck_age_min CHECK ( ( YEAR(dbo.ufn_GetDate()) - (YEAR(Date_of_birth) ) ) >= 14 )
+   CONSTRAINT ck_age_min CHECK ( ( YEAR(dbo.ufn_GetDate()) - (YEAR(Date_of_birth) ) ) >= 14 )
 );
 
 CREATE TABLE Items
@@ -101,7 +101,7 @@ CREATE TABLE Items
 
 CREATE TABLE Owners
 (
-	Id	BIGINT	 PRIMARY KEY IDENTITY(1,1),
+	Id BIGINT PRIMARY KEY IDENTITY(1,1),
 	Name VARCHAR(30) FOREIGN KEY REFERENCES  Items(Name),
 	Owner BIGINT FOREIGN KEY REFERENCES Persons(Id)  ON DELETE SET NULL
 );
@@ -120,7 +120,7 @@ CREATE TABLE Transactions
 
 CREATE TABLE Production
 (
-	Id	BIGINT	 PRIMARY KEY IDENTITY(1,1),
+	Id BIGINT PRIMARY KEY IDENTITY(1,1),
 	Profession VARCHAR(30) FOREIGN KEY REFERENCES Professions(Name),
 	Item VARCHAR(30) FOREIGN KEY REFERENCES Items(Name),
 
@@ -770,7 +770,7 @@ INSERT INTO Owners VALUES
 
 
 
----- WYŒWIETLANIE TABELI ----
+---- SHOW TABELS ----
 
 SELECT * FROM Names
 SELECT * FROM Houses
