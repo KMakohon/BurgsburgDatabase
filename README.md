@@ -17,10 +17,10 @@ Oznaczenia: **Klucz podstawowy**, _Klucz obcy_
 2. Names: (**Name**, Gender)
 3. Houses: (**Id**, District, Capacity, Type)
 4. Items: (**Name**, Value, Description)
-5. Owners: ( _Items.Name_ , _Persons.Id_ )
-6. Transaction: ( **_Customer.Id_** , **_Provider.Id_** , Amount)
+5. Owners: (**_Items.Name_** , _Persons.Id_ )
+6. Transaction: (**_Customer.Id_** , **_Provider.Id_** , Amount)
 7. Proffesions: (**Name**, Salary)
-8. Production: ( **_Proffesions.Name_** , **_Items.Name_** )
+8. Production: (**_Proffesions.Name_** , **_Items.Name_** )
 
 ## 3 Opis funkcjonalności
 
